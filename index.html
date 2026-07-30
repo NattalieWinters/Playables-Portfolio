@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A curated collection of interactive playable ad concepts built with Unity, Phaser 3, Babylon.js, and HTML5."
+    />
+    <meta name="theme-color" content="#f4f1ea" />
+    <title>Playable Arcade</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#game-grid">Skip to games</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Playable Arcade home">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span>Playable<br />Arcade</span>
+      </a>
+
+      <p class="header-note">
+        <span class="status-dot" aria-hidden="true"></span>
+        Collection online
+      </p>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span>01</span> Interactive showcase</p>
+          <h1 id="hero-title">Small games.<br /><em>Big play.</em></h1>
+          <p class="hero-intro">
+            Explore a collection of bite-sized game concepts—built across four
+            engines and ready to play right in your browser.
+          </p>
+
+          <a class="primary-cta" href="#collection">
+            Browse the collection
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="hero-stage" aria-hidden="true">
+          <div class="hero-orbit orbit-one"></div>
+          <div class="hero-orbit orbit-two"></div>
+          <div class="hero-card hero-card-back">
+            <span>PLAY</span>
+            <div class="pixel-cluster">
+              <i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+          </div>
+          <div class="hero-card hero-card-front">
+            <div class="hero-card-top">
+              <span>READY</span>
+              <span class="tiny-pill">WEB</span>
+            </div>
+            <div class="hero-controller">
+              <span class="controller-cross"></span>
+              <span class="controller-button one"></span>
+              <span class="controller-button two"></span>
+            </div>
+            <p>CLICK<br />TO START</p>
+          </div>
+          <div class="spark spark-one">✦</div>
+          <div class="spark spark-two">✦</div>
+        </div>
+
+        <div class="hero-stats" aria-label="Collection statistics">
+          <div>
+            <strong data-total-games>42</strong>
+            <span>Playables</span>
+          </div>
+          <div>
+            <strong>04</strong>
+            <span>Game engines</span>
+          </div>
+          <div>
+            <strong>∞</strong>
+            <span>Ways to play</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="collection" id="collection" aria-labelledby="collection-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span>02</span> All games</p>
+            <h2 id="collection-title">Pick your next play.</h2>
+          </div>
+          <p>Tap any tile to launch the playable in a focused game window.</p>
+        </div>
+
+        <div class="catalog-controls" aria-label="Game filters">
+          <div class="engine-filter-row">
+            <span class="control-label" id="engine-filter-label">Engine</span>
+            <div class="filter-list" role="group" aria-labelledby="engine-filter-label">
+              <button class="filter-button is-active" type="button" data-engine-filter="all" aria-pressed="true" aria-controls="game-grid">
+                All <span data-count="all">42</span>
+              </button>
+              <button class="filter-button" type="button" data-engine-filter="Unity" aria-pressed="false" aria-controls="game-grid">
+                Unity <span data-count="Unity">28</span>
+              </button>
+              <button class="filter-button" type="button" data-engine-filter="Phaser 3" aria-pressed="false" aria-controls="game-grid">
+                Phaser 3 <span data-count="Phaser 3">8</span>
+              </button>
+              <button class="filter-button" type="button" data-engine-filter="Babylon" aria-pressed="false" aria-controls="game-grid">
+                Babylon <span data-count="Babylon">2</span>
+              </button>
+              <button class="filter-button" type="button" data-engine-filter="HTML5" aria-pressed="false" aria-controls="game-grid">
+                HTML5 <span data-count="HTML5">4</span>
+              </button>
+            </div>
+          </div>
+
+          <label class="search-field">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="6.5"></circle>
+              <path d="m16 16 4 4"></path>
+            </svg>
+            <span class="sr-only">Search games</span>
+            <input id="game-search" type="search" placeholder="Search games" autocomplete="off" />
+            <kbd aria-hidden="true">/</kbd>
+          </label>
+
+          <div class="dimension-filter-row">
+            <span class="control-label" id="dimension-filter-label">Dimension</span>
+            <div class="filter-list" role="group" aria-labelledby="dimension-filter-label">
+              <button class="filter-button is-active" type="button" data-dimension-filter="all" aria-pressed="true" aria-controls="game-grid">
+                All <span data-dimension-count="all">42</span>
+              </button>
+              <button class="filter-button" type="button" data-dimension-filter="2D" aria-pressed="false" aria-controls="game-grid">
+                2D <span data-dimension-count="2D">21</span>
+              </button>
+              <button class="filter-button" type="button" data-dimension-filter="3D" aria-pressed="false" aria-controls="game-grid">
+                3D <span data-dimension-count="3D">21</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="type-filter-row">
+            <span class="control-label" id="type-filter-label">Game type</span>
+            <div class="type-filter-list" id="type-filter-list" role="group" aria-labelledby="type-filter-label"></div>
+          </div>
+        </div>
+
+        <p class="results-summary" aria-live="polite" aria-atomic="true">
+          Showing <strong id="visible-count">42</strong> <span id="visible-label">games</span><span id="active-filter-summary"></span>
+        </p>
+
+        <div class="game-grid" id="game-grid"></div>
+
+        <div class="empty-state" id="empty-state" hidden>
+          <div class="empty-icon" aria-hidden="true">?</div>
+          <h3>No games found</h3>
+          <p>Try a different title, collection, engine, or dimension.</p>
+          <button type="button" id="reset-filters">Reset filters</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#top" aria-label="Back to top">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span>Playable<br />Arcade</span>
+      </a>
+      <p>Built for curious minds and quick breaks.</p>
+      <a href="#top" class="back-to-top">
+        Back to top
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 14 6-6 6 6" /></svg>
+      </a>
+    </footer>
+
+    <dialog class="player-dialog" id="player-dialog" aria-labelledby="player-title">
+      <div class="player-window">
+        <div class="player-bar">
+          <div class="player-identity">
+            <span class="player-dot" aria-hidden="true"></span>
+            <div>
+              <h2 id="player-title">Game title</h2>
+              <p id="player-meta">Engine · Collection</p>
+            </div>
+          </div>
+
+          <div class="player-actions">
+            <button type="button" id="toggle-fit" class="icon-button" aria-label="Use wide game view" title="Toggle portrait / wide view" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="5" y="3" width="14" height="18" rx="2" />
+                <path d="M10 6h4" />
+              </svg>
+            </button>
+            <button type="button" id="reload-game" class="icon-button" aria-label="Reload game" title="Reload game">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6" />
+              </svg>
+            </button>
+            <a id="open-game" class="icon-button" href="#" target="_blank" rel="noopener" aria-label="Open game in a new tab" title="Open in new tab">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 5h5v5M11 13l8-8M19 13v6H5V5h6" />
+              </svg>
+            </a>
+            <button type="button" id="close-player" class="close-button" aria-label="Close game">
+              <span>Close</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m6 6 12 12M18 6 6 18" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="player-canvas">
+          <div class="player-loader" id="player-loader">
+            <span></span>
+            <p>Loading playable…</p>
+          </div>
+          <iframe
+            id="game-frame"
+            title="Playable game"
+            src="about:blank"
+            allow="autoplay; fullscreen; accelerometer; gyroscope"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </dialog>
+
+    <template id="game-card-template">
+      <article class="game-card-wrap">
+        <button class="game-card" type="button">
+          <span class="game-art" aria-hidden="true">
+            <span class="art-no"></span>
+            <span class="art-engine"></span>
+            <span class="art-motif"></span>
+            <span class="art-play">
+              <svg viewBox="0 0 24 24"><path d="m9 7 8 5-8 5Z" /></svg>
+            </span>
+          </span>
+          <span class="card-copy">
+            <span class="card-kicker"></span>
+            <span class="card-title-row">
+              <strong class="card-title"></strong>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </span>
+            <span class="card-variant"></span>
+          </span>
+        </button>
+      </article>
+    </template>
+  </body>
+</html>
