@@ -3,11 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
     <meta
       name="description"
       content="A curated collection of interactive playable ad concepts built with Unity, Phaser 3, Babylon.js, and HTML5."
     />
-    <meta name="theme-color" content="#f4f1ea" />
+    <meta name="theme-color" content="#f3f0e8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#151a18" media="(prefers-color-scheme: dark)" />
     <title>Playable Arcade</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
@@ -74,7 +76,7 @@
 
         <div class="hero-stats" aria-label="Collection statistics">
           <div>
-            <strong data-total-games>42</strong>
+            <strong data-total-games>45</strong>
             <span>Playables</span>
           </div>
           <div>
@@ -102,19 +104,19 @@
             <span class="control-label" id="engine-filter-label">Engine</span>
             <div class="filter-list" role="group" aria-labelledby="engine-filter-label">
               <button class="filter-button is-active" type="button" data-engine-filter="all" aria-pressed="true" aria-controls="game-grid">
-                All <span data-count="all">42</span>
+                All <span data-count="all">45</span>
               </button>
               <button class="filter-button" type="button" data-engine-filter="Unity" aria-pressed="false" aria-controls="game-grid">
                 Unity <span data-count="Unity">28</span>
               </button>
               <button class="filter-button" type="button" data-engine-filter="Phaser 3" aria-pressed="false" aria-controls="game-grid">
-                Phaser 3 <span data-count="Phaser 3">8</span>
+                Phaser 3 <span data-count="Phaser 3">9</span>
               </button>
               <button class="filter-button" type="button" data-engine-filter="Babylon" aria-pressed="false" aria-controls="game-grid">
                 Babylon <span data-count="Babylon">2</span>
               </button>
               <button class="filter-button" type="button" data-engine-filter="HTML5" aria-pressed="false" aria-controls="game-grid">
-                HTML5 <span data-count="HTML5">4</span>
+                HTML5 <span data-count="HTML5">6</span>
               </button>
             </div>
           </div>
@@ -133,10 +135,10 @@
             <span class="control-label" id="dimension-filter-label">Dimension</span>
             <div class="filter-list" role="group" aria-labelledby="dimension-filter-label">
               <button class="filter-button is-active" type="button" data-dimension-filter="all" aria-pressed="true" aria-controls="game-grid">
-                All <span data-dimension-count="all">42</span>
+                All <span data-dimension-count="all">45</span>
               </button>
               <button class="filter-button" type="button" data-dimension-filter="2D" aria-pressed="false" aria-controls="game-grid">
-                2D <span data-dimension-count="2D">21</span>
+                2D <span data-dimension-count="2D">24</span>
               </button>
               <button class="filter-button" type="button" data-dimension-filter="3D" aria-pressed="false" aria-controls="game-grid">
                 3D <span data-dimension-count="3D">21</span>
@@ -151,7 +153,7 @@
         </div>
 
         <p class="results-summary" aria-live="polite" aria-atomic="true">
-          Showing <strong id="visible-count">42</strong> <span id="visible-label">games</span><span id="active-filter-summary"></span>
+          Showing <strong id="visible-count">45</strong> <span id="visible-label">games</span><span id="active-filter-summary"></span>
         </p>
 
         <div class="game-grid" id="game-grid"></div>

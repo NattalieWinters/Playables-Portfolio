@@ -30,7 +30,10 @@ const games = [
   { title: "World Cylinder", variant: "", collection: "Hexasort", engine: "Babylon", motif: "world", palette: 25, file: "Playable Ads/Hexasort - World Cylinder.html" },
   { title: "Spin The Wheel", variant: "", collection: "Liquid IV", type: "Miscellaneous", engine: "HTML5", dimension: "2D", motif: "well", palette: 39, file: "Playable Ads/Liquid IV - Spin The Wheel.html" },
   { title: "Vending Machine", variant: "", collection: "Mudwtr", type: "Miscellaneous", engine: "HTML5", dimension: "2D", motif: "bottles", palette: 37, file: "Playable Ads/Mudwtr - Vending Machine.html" },
+  { title: "Thermometer", variant: "", collection: "Perimenopause", type: "Miscellaneous", engine: "HTML5", dimension: "2D", motif: "thermometer", palette: 40, file: "Playable Ads/Perimenopause - Thermometer.html" },
   { title: "Scratch Ticket", variant: "", collection: "Plateful July 4th", type: "Miscellaneous", engine: "HTML5", dimension: "2D", motif: "tiles", palette: 0, file: "Playable Ads/Plateful July 4th - Scratch Ticket.html" },
+  { title: "Conveyor Belt", variant: "", collection: "Prenatal", type: "Miscellaneous", engine: "HTML5", dimension: "2D", motif: "conveyor", palette: 41, file: "Playable Ads/Prenatal - Conveyor Belt.html" },
+  { title: "Doggy Level", variant: "", collection: "Profile Perfect", engine: "Phaser 3", dimension: "2D", motif: "paw", palette: 42, file: "Playable Ads/Profile Perfect - Doggy Level.html" },
   { title: "Spring Stress Level", variant: "", collection: "Solitaire", engine: "Unity", dimension: "2D", motif: "tiles", palette: 26, file: "Playable Ads/Solitaire - Spring Stress Level.html" },
   { title: "Summer Stress Level", variant: "", collection: "Solitaire", engine: "Unity", dimension: "2D", motif: "tiles", palette: 27, file: "Playable Ads/Solitaire - Summer Stress Level.html" },
   { title: "Plinko", variant: "", collection: "Wayfair", type: "Miscellaneous", engine: "HTML5", dimension: "2D", motif: "coins", palette: 38, file: "Playable Ads/Wayfair - Plinko.html" },
@@ -93,6 +96,9 @@ const palettes = [
   ["#f6b24d", "#ffd681", "#ff6a4b"],
   ["#ef7155", "#ffad91", "#c9f45c"],
   ["#9e7bd9", "#d5b6f3", "#ffdb65"],
+  ["#f5ecdc", "#f0c8cf", "#f04455"],
+  ["#fbfaf8", "#c9b69d", "#f0c54d"],
+  ["#f0d9dd", "#bcaeaa", "#c8f45a"],
 ];
 
 const grid = document.querySelector("#game-grid");
