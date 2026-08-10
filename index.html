@@ -11,8 +11,9 @@
     <meta name="theme-color" content="#f3f0e8" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#151a18" media="(prefers-color-scheme: dark)" />
     <title>Playable Arcade</title>
-    <link rel="stylesheet" href="./styles.css?v=20260810-46" />
-    <script src="./app.js?v=20260810-46" defer></script>
+    <link rel="stylesheet" href="./styles.css?v=20260810-47" />
+    <script src="./highlights.js?v=20260810-1" defer></script>
+    <script src="./app.js?v=20260810-47" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#game-grid">Skip to games</a>
@@ -90,10 +91,25 @@
         </div>
       </section>
 
+      <section class="highlights" id="highlights" aria-labelledby="highlights-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span>02</span> Highlights</p>
+            <h2 id="highlights-title">Five worth a spin.</h2>
+          </div>
+          <p>A hand-picked row of playable concepts from across the arcade.</p>
+        </div>
+
+        <p class="highlight-config-message" id="highlight-config-message" hidden>
+          Highlights need five valid, unique file paths. Check <code>highlights.js</code>.
+        </p>
+        <div class="highlight-grid" id="highlight-grid"></div>
+      </section>
+
       <section class="collection" id="collection" aria-labelledby="collection-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow"><span>02</span> All games</p>
+            <p class="eyebrow"><span>03</span> All games</p>
             <h2 id="collection-title">Pick your next play.</h2>
           </div>
           <p>Tap any tile to launch the playable in a focused game window.</p>

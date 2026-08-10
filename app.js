@@ -103,6 +103,8 @@ const palettes = [
 ];
 
 const grid = document.querySelector("#game-grid");
+const highlightsGrid = document.querySelector("#highlight-grid");
+const highlightConfigMessage = document.querySelector("#highlight-config-message");
 const template = document.querySelector("#game-card-template");
 const searchInput = document.querySelector("#game-search");
 const engineFilterButtons = [...document.querySelectorAll("[data-engine-filter]")];
@@ -148,6 +150,80 @@ function getPlayableUrl(file) {
   return file.split("/").map(encodeURIComponent).join("/");
 }
 
+function createGameCard(game, animationIndex, artNumber) {
+  const originalIndex = games.indexOf(game);
+  const node = template.content.cloneNode(true);
+  const wrapper = node.querySelector(".game-card-wrap");
+  const card = node.querySelector(".game-card");
+  const art = node.querySelector(".game-art");
+  const motif = node.querySelector(".art-motif");
+  const palette = palettes[game.palette % palettes.length];
+
+  wrapper.style.animationDelay = `${Math.min(animationIndex, 11) * 32}ms`;
+  art.style.setProperty("--c1", palette[0]);
+  art.style.setProperty("--c2", palette[1]);
+  art.style.setProperty("--c3", palette[2]);
+  motif.dataset.motif = game.motif;
+  node.querySelector(".art-no").textContent = artNumber ?? String(originalIndex + 1).padStart(2, "0");
+  node.querySelector(".art-engine").textContent = shortEngine(game.engine);
+  node.querySelector(".card-kicker").textContent = `${game.engine} · ${game.collection}`;
+  node.querySelector(".card-title").textContent = game.title;
+  node.querySelector(".card-variant").textContent = game.variant;
+
+  card.setAttribute("aria-label", `Play ${game.collection} - ${game.title}`);
+  card.addEventListener("click", () => openPlayer(game));
+  return node;
+}
+
+function renderHighlights() {
+  const configuredFiles = window.PLAYABLE_HIGHLIGHTS;
+  const configErrors = [];
+  const seenFiles = new Set();
+  const highlightedGames = [];
+
+  if (!Array.isArray(configuredFiles)) {
+    configErrors.push("PLAYABLE_HIGHLIGHTS must be an array in highlights.js.");
+  } else {
+    if (configuredFiles.length !== 5) {
+      configErrors.push(`Expected exactly 5 entries, received ${configuredFiles.length}.`);
+    }
+
+    configuredFiles.forEach((file) => {
+      if (typeof file !== "string") {
+        configErrors.push("Every entry in highlights.js must be a file path string.");
+        return;
+      }
+      if (seenFiles.has(file)) {
+        configErrors.push(`Duplicate entry: ${file}`);
+        return;
+      }
+
+      seenFiles.add(file);
+      const game = games.find((candidate) => candidate.file === file);
+      if (!game) {
+        configErrors.push(`No playable matches: ${file}`);
+        return;
+      }
+      highlightedGames.push(game);
+    });
+  }
+
+  if (configErrors.length || highlightedGames.length !== 5) {
+    highlightsGrid.replaceChildren();
+    highlightsGrid.hidden = true;
+    highlightConfigMessage.hidden = false;
+    configErrors.forEach((message) => console.warn(`Highlights: ${message}`));
+    return;
+  }
+
+  highlightConfigMessage.hidden = true;
+  highlightsGrid.hidden = false;
+  highlightsGrid.replaceChildren();
+  highlightedGames.forEach((game, index) => {
+    highlightsGrid.append(createGameCard(game, index, `H${index + 1}`));
+  });
+}
+
 function renderGames() {
   const query = searchInput.value.trim().toLowerCase();
   const visibleGames = games.filter((game) => {
@@ -161,28 +237,7 @@ function renderGames() {
   grid.replaceChildren();
 
   visibleGames.forEach((game, visibleIndex) => {
-    const originalIndex = games.indexOf(game);
-    const node = template.content.cloneNode(true);
-    const wrapper = node.querySelector(".game-card-wrap");
-    const card = node.querySelector(".game-card");
-    const art = node.querySelector(".game-art");
-    const motif = node.querySelector(".art-motif");
-    const palette = palettes[game.palette % palettes.length];
-
-    wrapper.style.animationDelay = `${Math.min(visibleIndex, 11) * 32}ms`;
-    art.style.setProperty("--c1", palette[0]);
-    art.style.setProperty("--c2", palette[1]);
-    art.style.setProperty("--c3", palette[2]);
-    motif.dataset.motif = game.motif;
-    node.querySelector(".art-no").textContent = String(originalIndex + 1).padStart(2, "0");
-    node.querySelector(".art-engine").textContent = shortEngine(game.engine);
-    node.querySelector(".card-kicker").textContent = `${game.engine} · ${game.collection}`;
-    node.querySelector(".card-title").textContent = game.title;
-    node.querySelector(".card-variant").textContent = game.variant;
-
-    card.setAttribute("aria-label", `Play ${game.collection} - ${game.title}`);
-    card.addEventListener("click", () => openPlayer(game));
-    grid.append(node);
+    grid.append(createGameCard(game, visibleIndex));
   });
 
   visibleCount.textContent = String(visibleGames.length);
@@ -375,5 +430,6 @@ document.querySelectorAll("[data-dimension-count]").forEach((element) => {
     : String(games.filter((game) => getDimension(game) === dimension).length);
 });
 
+renderHighlights();
 renderTypeFilters();
 renderGames();
