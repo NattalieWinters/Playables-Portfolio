@@ -25,6 +25,7 @@ const games = [
   { title: "Gold Digger", variant: "", collection: "Category Sort", engine: "Phaser 3", motif: "coins", palette: 20, file: "Playable Ads/Category Sort - Gold Digger.html" },
   { title: "Horizontal Roll", variant: "", collection: "Coin Sort", engine: "Phaser 3", dimension: "3D", motif: "coins", palette: 21, file: "Playable Ads/Coin Sort - Horizontal Roll.html" },
   { title: "Santa", variant: "", collection: "Color By Number", engine: "Phaser 3", motif: "paint", palette: 22, file: "Playable Ads/Color By Number - Santa.html" },
+  { title: "Scratch Plan", variant: "", collection: "Fabulous", type: "Miscellaneous", engine: "HTML5", dimension: "2D", motif: "tiles", palette: 3, file: "Playable Ads/Fabulous - Scratch Plan.html" },
   { title: "Ying Yang Bottle Blue", variant: "", collection: "Get Color Pack", engine: "Phaser 3", motif: "bottles", palette: 23, file: "Playable Ads/Get Color Pack - Ying Yang Bottle Blue.html" },
   { title: "Ying Yang Bottle White", variant: "", collection: "Get Color Pack", engine: "Phaser 3", motif: "bottles", palette: 24, file: "Playable Ads/Get Color Pack - Ying Yang Bottle White.html" },
   { title: "World Cylinder", variant: "", collection: "Hexasort", engine: "Babylon", motif: "world", palette: 25, file: "Playable Ads/Hexasort - World Cylinder.html" },
