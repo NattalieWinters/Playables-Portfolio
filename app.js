@@ -28,6 +28,7 @@ const games = [
   { title: "Scratch Plan", variant: "", collection: "Fabulous", type: "Miscellaneous", engine: "HTML5", dimension: "2D", motif: "tiles", palette: 3, file: "Playable Ads/Fabulous - Scratch Plan.html" },
   { title: "Ying Yang Bottle Blue", variant: "", collection: "Get Color Pack", engine: "Phaser 3", motif: "bottles", palette: 23, file: "Playable Ads/Get Color Pack - Ying Yang Bottle Blue.html" },
   { title: "Ying Yang Bottle White", variant: "", collection: "Get Color Pack", engine: "Phaser 3", motif: "bottles", palette: 24, file: "Playable Ads/Get Color Pack - Ying Yang Bottle White.html" },
+  { title: "Slot Machine", variant: "", collection: "Glamnetic", type: "Miscellaneous", engine: "HTML5", dimension: "2D", motif: "coins", palette: 43, file: "Playable Ads/Glamnetic - Slot Machine.html" },
   { title: "World Cylinder", variant: "", collection: "Hexasort", engine: "Babylon", motif: "world", palette: 25, file: "Playable Ads/Hexasort - World Cylinder.html" },
   { title: "Spin The Wheel", variant: "", collection: "Liquid IV", type: "Miscellaneous", engine: "HTML5", dimension: "2D", motif: "well", palette: 39, file: "Playable Ads/Liquid IV - Spin The Wheel.html" },
   { title: "Vending Machine", variant: "", collection: "Mudwtr", type: "Miscellaneous", engine: "HTML5", dimension: "2D", motif: "bottles", palette: 37, file: "Playable Ads/Mudwtr - Vending Machine.html" },
@@ -100,6 +101,7 @@ const palettes = [
   ["#f5ecdc", "#f0c8cf", "#f04455"],
   ["#fbfaf8", "#c9b69d", "#f0c54d"],
   ["#f0d9dd", "#bcaeaa", "#c8f45a"],
+  ["#edcad5", "#fbf7f4", "#2c2327"],
 ];
 
 const grid = document.querySelector("#game-grid");
